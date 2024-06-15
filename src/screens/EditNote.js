@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, TextInput, Text, StyleSheet } from 'react-native';
 import CustomButton from '../components/CustomButton';
-import CustomTextInput from '../components/CustomTextInput';
 
 const EditNote = ({ noteList, editNote, setCurrentPage, editNoteId }) => {
     const [title, setTitle] = useState('');
@@ -18,20 +17,33 @@ const EditNote = ({ noteList, editNote, setCurrentPage, editNoteId }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.pageTitle}>Ubah Note</Text>
-            <CustomTextInput
-                text={title}
-                onChangeText={setTitle} // Ensure onChangeText is passed correctly
-                label="Judul"
-                multiline={false}
-                numberOfLines={1}
-            />
-            <CustomTextInput
-                text={desc}
-                onChangeText={setDesc} // Ensure onChangeText is passed correctly
-                label="Deskripsi"
-                multiline={true}
-                numberOfLines={4}
-            />
+            {/* <TextInput
+                multiline={multiline}
+                numberOfLines={numberOfLines}
+                style={styles.input}
+                placeholder={label}
+                onChangeText={onChange}
+                defaultValue={text}
+                /> */}
+            <View style={styles.textInputWrapper}>
+                <Text>Judul</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Title"
+                    value={title}
+                    onChangeText={setTitle}
+                    multiline={false}
+                />
+            </View>
+            <View style={styles.textInputWrapper}>
+                <Text>Deskripsi</Text>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Description"
+                    value={desc}
+                    onChangeText={setDesc}
+                />
+            </View>
             <View style={styles.spacerTop}>
                 <CustomButton
                     backgroundColor="#247881"
@@ -74,6 +86,14 @@ const styles = StyleSheet.create({
     spacerTop: {
         marginTop: 30,
     },
-});
+    textInputWrapper: {
+        marginTop: 20,
+    },
+    input: {
+        borderWidth: 2,
+        borderColor: '#DDD',
+        padding: 10,
+    },
+})
 
 export default EditNote;

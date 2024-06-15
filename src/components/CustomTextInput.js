@@ -1,7 +1,13 @@
-import React from 'react';
-import { TextInput, Text, StyleSheet, View } from 'react-native';
+import React from 'react'
+import { TextInput, Text, StyleSheet, View } from 'react-native'
 
-const CustomTextInput = ({ text, onChangeText, label, multiline, numberOfLines }) => {
+const CustomTextInput = ({
+  text,
+  onChange,
+  label,
+  multiline,
+  numberOfLines,
+}) => {
   const styles = StyleSheet.create({
     textInputWrapper: {
       marginTop: 20,
@@ -11,7 +17,7 @@ const CustomTextInput = ({ text, onChangeText, label, multiline, numberOfLines }
       borderColor: '#DDD',
       padding: 10,
     },
-  });
+  })
 
   return (
     <View style={styles.textInputWrapper}>
@@ -21,11 +27,11 @@ const CustomTextInput = ({ text, onChangeText, label, multiline, numberOfLines }
         numberOfLines={numberOfLines}
         style={styles.input}
         placeholder={label}
-        onChangeText={onChangeText}
-        value={text} // Use value instead of defaultValue
+        onChangeText={onChange}
+        defaultValue={text}
       />
     </View>
-  );
-};
+  )
+}
 
-export default CustomTextInput;
+export default CustomTextInput
