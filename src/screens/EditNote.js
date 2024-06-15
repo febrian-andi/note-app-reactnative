@@ -20,18 +20,16 @@ const EditNote = ({ noteList, editNote, setCurrentPage, editNoteId }) => {
             <Text style={styles.pageTitle}>Ubah Note</Text>
             <CustomTextInput
                 text={title}
-                onChangeText={setTitle}
+                onChangeText={setTitle} // Ensure onChangeText is passed correctly
                 label="Judul"
-                placeholder="Title"
-                numberOfLines={1}
                 multiline={false}
+                numberOfLines={1}
             />
             <CustomTextInput
                 text={desc}
-                onChangeText={setDesc}
+                onChangeText={setDesc} // Ensure onChangeText is passed correctly
                 label="Deskripsi"
-                placeholder="Deskripsi"
-                multiline
+                multiline={true}
                 numberOfLines={4}
             />
             <View style={styles.spacerTop}>
@@ -76,6 +74,6 @@ const styles = StyleSheet.create({
     spacerTop: {
         marginTop: 30,
     },
-})
+});
 
 export default EditNote;
